@@ -1,0 +1,21 @@
+# Build artifacts
+build/
+cmake-build-*/
+
+# Config with secrets
+config/config.json
+
+# ONNX models (large binaries)
+models/*.onnx
+
+# Python
+__pycache__/
+*.pyc
+scripts/venv/
+
+# Logs
+*.log
+*.db
+
+# VS Code
+.vscode/settings.json
