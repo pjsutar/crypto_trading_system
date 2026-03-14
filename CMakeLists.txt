@@ -37,6 +37,16 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(SQLITE3 REQUIRED sqlite3)
 
 # ── Source files per layer ────────────────────────────────────────
+
+# Common utilities — header-only, no .cpp files
+# Kept here for documentation and future use if .cpp files are added
+set(COMMON_SOURCES
+    # src/common/macros.hpp
+    # src/common/time_utils.hpp
+    # src/common/thread_utils.hpp
+    # src/common/mem_pool.hpp
+)
+
 set(DATA_LAYER_SOURCES
     src/data/BinanceWebSocketClient.cpp
     src/data/OrderBook.cpp
@@ -57,6 +67,8 @@ add_executable(crypto_trader
 target_include_directories(crypto_trader
     PRIVATE
         ${CMAKE_SOURCE_DIR}/src
+        ${CMAKE_SOURCE_DIR}/src/common
+        ${CMAKE_SOURCE_DIR}/src/data
         ${Boost_INCLUDE_DIRS}
         ${SQLITE3_INCLUDE_DIRS}
 )

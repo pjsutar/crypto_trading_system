@@ -1,5 +1,3 @@
-# We'll use a lightweight header-only test framework
-# Download doctest — single header, no setup needed
 include(FetchContent)
 
 FetchContent_Declare(
@@ -17,6 +15,8 @@ add_executable(test_orderbook
 target_include_directories(test_orderbook
     PRIVATE
         ${CMAKE_SOURCE_DIR}/src
+        ${CMAKE_SOURCE_DIR}/src/common
+        ${CMAKE_SOURCE_DIR}/src/data
         ${Boost_INCLUDE_DIRS}
 )
 
